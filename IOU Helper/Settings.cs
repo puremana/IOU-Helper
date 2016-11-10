@@ -66,6 +66,11 @@ namespace IOU_Helper
                 {
                     radioButtonClickMilliseconds.Checked = true;
                 }
+
+                if (checkBoxHardRefresh.Checked == false)
+                {
+                    checkBoxHardRefresh.Checked = true;
+                }
             }
 
         }
@@ -83,6 +88,7 @@ namespace IOU_Helper
                 string refreshChecked = "";
                 string refreshRadio = "";
                 string autoRadio = "";
+                string hardRefresh = "";
 
                 int clicker = int.Parse(textBoxAutoClicker.Text);
                 if (radioButtonClickMilliseconds.Checked == false)
@@ -156,6 +162,16 @@ namespace IOU_Helper
                             _form1.enableTimer(milSeconds, false);
                             refreshChecked = "unchecked";
                         }
+
+                        if (checkBoxHardRefresh.Checked == true)
+                        {
+                            _form1.setHardRefresh(true);
+                            hardRefresh = "checked";
+                        }
+                        else {
+                            _form1.setHardRefresh(false);
+                            hardRefresh = "unchecked";
+                        }
                     }     
                     //Auto Clicker settings
                     if (textBoxAutoClicker.Text != null)
@@ -175,7 +191,7 @@ namespace IOU_Helper
                     }
 
                     applyDetails = (size + "," + refreshChecked + "," +
-                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio);
+                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh);
                     MessageBox.Show("Settings applied.");
                 }
                 else
@@ -283,9 +299,12 @@ namespace IOU_Helper
                                     radioButtonClickSeconds.Checked = true;
                                 }
                             }
-                            else
+                            if (lineRead[6] != null)
                             {
-                                //break;
+                                if (lineRead[6] == "checked")
+                                {
+                                    checkBoxHardRefresh.Checked = true;
+                                }
                             }
                         }
                         catch (Exception ex)
@@ -377,9 +396,12 @@ namespace IOU_Helper
                                 radioButtonClickSeconds.Checked = true;
                             }
                         }
-                        else
+                        if (lineRead[6] != null)
                         {
-                            //break;
+                            if (lineRead[6] == "checked")
+                            {
+                                checkBoxHardRefresh.Checked = true;
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -451,6 +473,7 @@ namespace IOU_Helper
                 string refreshChecked = " ";
                 string refreshRadio = " ";
                 string autoRadio = " ";
+                string hardRefresh = " ";
 
 
                 if (radioButtonSmall.Checked == true)
@@ -492,8 +515,17 @@ namespace IOU_Helper
                     autoRadio = "seconds";
                 }
 
+                if (checkBoxHardRefresh.Checked == true)
+                {
+                    hardRefresh = "checked";
+                }
+                else
+                {
+                    hardRefresh = "unchecked";
+                }
+
                 writer.WriteLine(size + "," + refreshChecked + "," + 
-                   textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio);
+                   textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh);
 
                 writer.Close();
                 MessageBox.Show("Settings saved to Auto Save File.");
@@ -597,6 +629,13 @@ namespace IOU_Helper
                                     radioButtonClickSeconds.Checked = true;
                                 }
                             }
+                            if (lineRead[6] != null)
+                            {
+                                if (lineRead[6] == "checked")
+                                {
+                                    checkBoxHardRefresh.Checked = true;
+                                }
+                            }
                             else
                             {
                                 break;
@@ -637,6 +676,7 @@ namespace IOU_Helper
                     string refreshChecked = " ";
                     string refreshRadio = " ";
                     string autoRadio = " ";
+                    string hardRefresh = " ";
 
                     if (radioButtonSmall.Checked == true)
                     {
@@ -677,8 +717,17 @@ namespace IOU_Helper
                         autoRadio = "seconds";
                     }
 
+                    if (checkBoxHardRefresh.Checked == true)
+                    {
+                        hardRefresh = "checked";
+                    }
+                    else
+                    {
+                        hardRefresh = "unchecked";
+                    }
+
                     writer.WriteLine(size + "," + refreshChecked + "," +
-                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio);
+                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh);
 
                     writer.Close();
                 }

@@ -57,6 +57,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxHardRefresh = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBoxRefresh.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -162,6 +163,7 @@
             // 
             // groupBoxRefresh
             // 
+            this.groupBoxRefresh.Controls.Add(this.checkBoxHardRefresh);
             this.groupBoxRefresh.Controls.Add(this.radioButtonRefreshMinutes);
             this.groupBoxRefresh.Controls.Add(this.radioButtonRefreshSeconds);
             this.groupBoxRefresh.Controls.Add(this.textBoxRefresh);
@@ -197,7 +199,7 @@
             // 
             // textBoxRefresh
             // 
-            this.textBoxRefresh.Location = new System.Drawing.Point(309, 72);
+            this.textBoxRefresh.Location = new System.Drawing.Point(309, 55);
             this.textBoxRefresh.Name = "textBoxRefresh";
             this.textBoxRefresh.Size = new System.Drawing.Size(217, 38);
             this.textBoxRefresh.TabIndex = 1;
@@ -207,7 +209,7 @@
             // checkBoxRefresh
             // 
             this.checkBoxRefresh.AutoSize = true;
-            this.checkBoxRefresh.Location = new System.Drawing.Point(38, 75);
+            this.checkBoxRefresh.Location = new System.Drawing.Point(38, 58);
             this.checkBoxRefresh.Name = "checkBoxRefresh";
             this.checkBoxRefresh.Size = new System.Drawing.Size(265, 36);
             this.checkBoxRefresh.TabIndex = 0;
@@ -342,6 +344,16 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "(Applying these settings will perform an internal load)";
             // 
+            // checkBoxHardRefresh
+            // 
+            this.checkBoxHardRefresh.AutoSize = true;
+            this.checkBoxHardRefresh.Location = new System.Drawing.Point(38, 112);
+            this.checkBoxHardRefresh.Name = "checkBoxHardRefresh";
+            this.checkBoxHardRefresh.Size = new System.Drawing.Size(220, 36);
+            this.checkBoxHardRefresh.TabIndex = 4;
+            this.checkBoxHardRefresh.Text = "Hard Refresh";
+            this.checkBoxHardRefresh.UseVisualStyleBackColor = true;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -403,5 +415,6 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxHardRefresh;
     }
 }

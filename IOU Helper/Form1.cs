@@ -49,6 +49,7 @@ namespace IOU_Helper
         Label tempLabel;
         GroupBox tempBox;
         Button tempButton;
+        bool hardRefresh = true;
 
         //Global Variables
         private string kongUsername;
@@ -395,6 +396,17 @@ namespace IOU_Helper
                         {
                             break;
                         }
+                        if (lineRead[6] != null)
+                        {
+                            if (lineRead[6] == "checked")
+                            {
+                                hardRefresh = true;
+                            }
+                            else
+                            {
+                                hardRefresh = false;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -615,7 +627,19 @@ namespace IOU_Helper
         }
         private void refreshTimer_Tick(object sender, EventArgs e)
         {
-            refreshAll();
+            if (hardRefresh == false)
+            {
+                refreshAll();
+            }
+            else
+            {
+                hardRefreshAll();
+            }
+        }
+
+        public void setHardRefresh(bool hard) 
+        {
+            hardRefresh = hard;
         }
 
         /// <summary>
