@@ -1564,5 +1564,19 @@ namespace IOU_Helper
             }
 
         }
+
+        private void alwaysOnTopTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (alwaysOnTopTToolStripMenuItem.Text == "Always on Top (F)")
+            {
+                this.TopMost = true;
+                alwaysOnTopTToolStripMenuItem.Text = "Always on Top (T)";
+            }
+            else
+            {
+                this.TopMost = false;
+                alwaysOnTopTToolStripMenuItem.Text = "Always on Top (F)";
+            }
+        }
     }
 }
