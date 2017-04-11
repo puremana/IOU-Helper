@@ -1578,5 +1578,53 @@ namespace IOU_Helper
                 alwaysOnTopTToolStripMenuItem.Text = "Always on Top (F)";
             }
         }
+
+        private void copyAccURLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string username;
+            string tabUser = tabControl.SelectedTab.Text;
+            Tab tempTab = new Tab(null, null);
+            bool found = false;
+
+            if (tabUser == "Client")
+            {
+                MessageBox.Show("There is no information to copy from this tab.");
+            }            
+            else if (tabUser == "IOURPG")
+            {
+                MessageBox.Show("There is no information to copy from this tab.");
+            }
+            else try
+            {
+                foreach (Tab tab in tabList)
+                {
+                    username = tab.getUsername();
+                    if (username == tabUser)
+                    {
+                        Clipboard.SetText(tab.URL().ToString());
+                        MessageBox.Show("Account URL has been copied to your clipboard.");
+                        found = true;
+                        break;
+                    }
+                }
+                if (found == false)
+                {
+                    foreach (Tab tab in testTabList)
+                    {
+                        username = tab.getUsername() + " test";
+                        if (username == tabUser)
+                        {
+                            Clipboard.SetText(tab.getTestURL().ToString());
+                            MessageBox.Show("Test Account URL has been copied to your clipboard.");
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }

@@ -60,6 +60,7 @@
             this.screenshotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyAccInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alwaysOnTopTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxKongUser = new System.Windows.Forms.TextBox();
             this.groupBoxAccount = new System.Windows.Forms.GroupBox();
             this.textBoxKongToken = new System.Windows.Forms.TextBox();
@@ -80,7 +81,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.IOUclient = new WebKit.WebKitBrowser();
             this.abilityTimer = new System.Windows.Forms.Timer(this.components);
-            this.alwaysOnTopTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyAccURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -263,6 +264,7 @@
             this.screenshotToolStripMenuItem,
             this.closeTabToolStripMenuItem,
             this.copyAccInfoToolStripMenuItem,
+            this.copyAccURLToolStripMenuItem,
             this.alwaysOnTopTToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(102, 48);
@@ -330,6 +332,13 @@
             this.copyAccInfoToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
             this.copyAccInfoToolStripMenuItem.Text = "Copy Acc Info";
             this.copyAccInfoToolStripMenuItem.Click += new System.EventHandler(this.copyAccInfoToolStripMenuItem_Click);
+            // 
+            // alwaysOnTopTToolStripMenuItem
+            // 
+            this.alwaysOnTopTToolStripMenuItem.Name = "alwaysOnTopTToolStripMenuItem";
+            this.alwaysOnTopTToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
+            this.alwaysOnTopTToolStripMenuItem.Text = "Always on Top (F)";
+            this.alwaysOnTopTToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopTToolStripMenuItem_Click);
             // 
             // textBoxKongUser
             // 
@@ -510,12 +519,12 @@
             // 
             this.abilityTimer.Tick += new System.EventHandler(this.abilityTimer_Tick);
             // 
-            // alwaysOnTopTToolStripMenuItem
+            // copyAccURLToolStripMenuItem
             // 
-            this.alwaysOnTopTToolStripMenuItem.Name = "alwaysOnTopTToolStripMenuItem";
-            this.alwaysOnTopTToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
-            this.alwaysOnTopTToolStripMenuItem.Text = "Always on Top (F)";
-            this.alwaysOnTopTToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopTToolStripMenuItem_Click);
+            this.copyAccURLToolStripMenuItem.Name = "copyAccURLToolStripMenuItem";
+            this.copyAccURLToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
+            this.copyAccURLToolStripMenuItem.Text = "Copy Acc URL";
+            this.copyAccURLToolStripMenuItem.Click += new System.EventHandler(this.copyAccURLToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -599,6 +608,7 @@
         private System.Windows.Forms.ToolStripMenuItem runTestClientToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyAccInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyAccURLToolStripMenuItem;
     }
 }
 
