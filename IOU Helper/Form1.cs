@@ -55,6 +55,7 @@ namespace IOU_Helper
         private string kongUsername;
         private string code;
         private string gameVersion;
+        private string rayVersion;
         private int tabSmallWidth = 596;
         private int tabSmallHeight = 493;
         private int iouSmallHeight = 468;
@@ -359,7 +360,12 @@ namespace IOU_Helper
 
                     code = codeWords[3];
                     gameVersion = gameWords[8];
-                    Tab.setCodes(code, gameVersion);
+
+                    Random rnd = new Random();
+                    string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
+                    rayVersion = wc.DownloadString(url);
+                    Tab.setCodes(code, gameVersion, rayVersion);
+                    
                     check = words[2];
                     //UPDATE CHECKER
                     if (check != version)
@@ -1108,7 +1114,12 @@ namespace IOU_Helper
 
                 code = codeWords[3];
                 gameVersion = gameWords[8];
-                Tab.setCodes(code, gameVersion);
+
+                Random rnd = new Random();
+                string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
+                rayVersion = wc.DownloadString(url);
+
+                Tab.setCodes(code, gameVersion, rayVersion);
             }
             catch
             {

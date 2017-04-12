@@ -15,6 +15,7 @@ namespace IOU_Helper
         private string _kongToken;
         private static string _code;
         private static string _gameVersion;
+        private static string _rayVersion;
         private WebKit.WebKitBrowser _client;
         private TabPage _tabpage;
         private Boolean _isTest;
@@ -43,7 +44,7 @@ namespace IOU_Helper
 
         public System.Uri URL()
         {
-            System.Uri uri = new System.Uri("http://chat.kongregate.com/gamez/0022/7576/live/iou.swf?" + _gameVersion + "&kongregate_username=" + _kongUsername + "&kongregate_user_id=" + _kongID + "&kongregate_game_auth_token=" + _kongToken + "&kongregate_api_path=http%3A%2F%2Fchat.kongregate.com%2Fflash%2FAPI_AS3_" + _code + ".swf");
+            System.Uri uri = new System.Uri("http://chat.kongregate.com/gamez/0022/7576/live/iou.swf?" + _gameVersion + "&v=" + _rayVersion + "&kongregate_username=" + _kongUsername + "&kongregate_user_id=" + _kongID + "&kongregate_game_auth_token=" + _kongToken + "&kongregate_api_path=http%3A%2F%2Fchat.kongregate.com%2Fflash%2FAPI_AS3_" + _code + ".swf");
             return uri;
         }
 
@@ -67,10 +68,11 @@ namespace IOU_Helper
             return _tabpage;
         }
 
-        public static void setCodes(string code, string gameVersion) 
+        public static void setCodes(string code, string gameVersion, string rayVersion) 
         {
             _code = code;
             _gameVersion = gameVersion;
+            _rayVersion = rayVersion;
         }
 
         public void reloadIOURPG()
@@ -85,7 +87,7 @@ namespace IOU_Helper
 
         public System.Uri getTestURL()
         {
-            System.Uri uri = new System.Uri("http://iourpg.com/test.swf?" + _gameVersion + "&kongregate_username=" + _kongUsername + "&kongregate_user_id=" + _kongID + "&kongregate_game_auth_token=" + _kongToken + "&kongregate_api_path=http%3A%2F%2Fchat.kongregate.com%2Fflash%2FAPI_AS3_" + _code + ".swf");
+            System.Uri uri = new System.Uri("http://iourpg.com/test.swf?" + _gameVersion + "&v=" + _rayVersion + "&kongregate_username=" + _kongUsername + "&kongregate_user_id=" + _kongID + "&kongregate_game_auth_token=" + _kongToken + "&kongregate_api_path=http%3A%2F%2Fchat.kongregate.com%2Fflash%2FAPI_AS3_" + _code + ".swf");
             return uri;
         }
 
