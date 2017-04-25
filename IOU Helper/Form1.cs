@@ -24,7 +24,7 @@ namespace IOU_Helper
         static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
         //Current version number
-        private string version = "1.4";
+        private string version = "1.5";
         private string check = "";
 
         // constants for the mouse_input() API function
@@ -359,7 +359,7 @@ namespace IOU_Helper
                     string[] words = raw.Split('|');
 
                     code = codeWords[3];
-                    gameVersion = gameWords[8];
+                    gameVersion = gameWords[9];
 
                     Random rnd = new Random();
                     string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
@@ -1108,13 +1108,11 @@ namespace IOU_Helper
                 string rawCode = wc.DownloadString("http://www.kongregate.com/games/iouRPG/idle-online-universe");
                 string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
                 string[] gameWords = rawCode.Split(new string[] {"kongregate_game_version=", "\";" }, StringSplitOptions.None);
-
                 string raw = wc.DownloadString("http://iouhelper.com/code.html");
                 string[] words = raw.Split('|');
 
                 code = codeWords[3];
-                gameVersion = gameWords[8];
-
+                gameVersion = gameWords[9];
                 Random rnd = new Random();
                 string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
                 rayVersion = wc.DownloadString(url);
@@ -1636,6 +1634,34 @@ namespace IOU_Helper
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void hardRefreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Download the iou client code online
+            System.Net.WebClient wc = new System.Net.WebClient();
+            try
+            {
+                string rawCode = wc.DownloadString("http://www.kongregate.com/games/iouRPG/idle-online-universe");
+                string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
+                string[] gameWords = rawCode.Split(new string[] { "kongregate_game_version=", "\";" }, StringSplitOptions.None);
+                string raw = wc.DownloadString("http://iouhelper.com/code.html");
+                string[] words = raw.Split('|');
+
+                code = codeWords[3];
+                gameVersion = gameWords[9];
+                Random rnd = new Random();
+                string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
+                rayVersion = wc.DownloadString(url);
+
+                Tab.setCodes(code, gameVersion, rayVersion);
+            }
+            catch
+            {
+
+            }
+
+            singleRefresh();
         }
     }
 }

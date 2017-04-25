@@ -60,6 +60,7 @@
             this.screenshotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyAccInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyAccURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alwaysOnTopTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textBoxKongUser = new System.Windows.Forms.TextBox();
             this.groupBoxAccount = new System.Windows.Forms.GroupBox();
@@ -81,7 +82,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.IOUclient = new WebKit.WebKitBrowser();
             this.abilityTimer = new System.Windows.Forms.Timer(this.components);
-            this.copyAccURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardRefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -115,7 +116,7 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 48);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 45);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newTabToolStripMenuItem
@@ -175,7 +176,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(137, 48);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(137, 45);
             this.optionsToolStripMenuItem.Text = "Settings";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
@@ -191,7 +192,7 @@
             this.petAnalyzerFerretToolStripMenuItem,
             this.versionCheckToolStripMenuItem});
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(96, 48);
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(96, 45);
             this.linksToolStripMenuItem.Text = "Links";
             // 
             // iOUHelperToolStripMenuItem
@@ -258,6 +259,7 @@
             this.startAutoClickerToolStripMenuItem1,
             this.abilitesToolStripMenuItem,
             this.refreshToolStripMenuItem1,
+            this.hardRefreshToolStripMenuItem,
             this.refreshAllToolStripMenuItem,
             this.hardRefreshAllToolStripMenuItem,
             this.timersToolStripMenuItem,
@@ -332,6 +334,13 @@
             this.copyAccInfoToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
             this.copyAccInfoToolStripMenuItem.Text = "Copy Acc Info";
             this.copyAccInfoToolStripMenuItem.Click += new System.EventHandler(this.copyAccInfoToolStripMenuItem_Click);
+            // 
+            // copyAccURLToolStripMenuItem
+            // 
+            this.copyAccURLToolStripMenuItem.Name = "copyAccURLToolStripMenuItem";
+            this.copyAccURLToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
+            this.copyAccURLToolStripMenuItem.Text = "Copy Acc URL";
+            this.copyAccURLToolStripMenuItem.Click += new System.EventHandler(this.copyAccURLToolStripMenuItem_Click);
             // 
             // alwaysOnTopTToolStripMenuItem
             // 
@@ -519,12 +528,12 @@
             // 
             this.abilityTimer.Tick += new System.EventHandler(this.abilityTimer_Tick);
             // 
-            // copyAccURLToolStripMenuItem
+            // hardRefreshToolStripMenuItem
             // 
-            this.copyAccURLToolStripMenuItem.Name = "copyAccURLToolStripMenuItem";
-            this.copyAccURLToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
-            this.copyAccURLToolStripMenuItem.Text = "Copy Acc URL";
-            this.copyAccURLToolStripMenuItem.Click += new System.EventHandler(this.copyAccURLToolStripMenuItem_Click);
+            this.hardRefreshToolStripMenuItem.Name = "hardRefreshToolStripMenuItem";
+            this.hardRefreshToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
+            this.hardRefreshToolStripMenuItem.Text = "Hard Refresh";
+            this.hardRefreshToolStripMenuItem.Click += new System.EventHandler(this.hardRefreshToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -538,7 +547,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IOU Helper v1.4";
+            this.Text = "IOU Helper v1.5";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
@@ -609,6 +618,7 @@
         private System.Windows.Forms.ToolStripMenuItem copyAccInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyAccURLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hardRefreshToolStripMenuItem;
     }
 }
 
