@@ -1405,7 +1405,8 @@ namespace IOU_Helper
             myTabPage.Controls.Add(IOUclient2);
             IOUclient2.Visible = true;
             setClient(tabControl, IOUclient2);
-            IOUclient2.Url = new System.Uri("http://scripts.iouscripts.com/iou.swf");
+            System.Uri iouURL = new System.Uri("http://d2452urjrn3oas.cloudfront.net/iou.swf?v" + rayVersion);
+            IOUclient2.Url = iouURL;
             Tab tab = new Tab(IOUclient2, myTabPage);
             IOURPGtabList.Add(tab);
         }
