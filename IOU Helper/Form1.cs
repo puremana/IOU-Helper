@@ -354,9 +354,24 @@ namespace IOU_Helper
                     string rawCode = wc.DownloadString("http://www.kongregate.com/games/iouRPG/idle-online-universe");
                     string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
                     string[] gameWords = rawCode.Split(new string[] {"kongregate_game_version=", "\";" }, StringSplitOptions.None);
+                    
+                    try
+                    {
+                        string raw = wc.DownloadString("http://iouhelper.com/code.html");
+                        string[] words = raw.Split('|');
 
-                    string raw = wc.DownloadString("http://iouhelper.com/code.html");
-                    string[] words = raw.Split('|');
+                        check = words[2];
+                        //UPDATE CHECKER
+                        if (check != version)
+                        {
+                            Image red = Image.FromFile("imgs/red.jpg");
+                            versionCheckToolStripMenuItem.Image = red;
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Cannot load the current IOU version code from http://www.iouhelper.com/code.html");
+                    }
 
                     code = codeWords[3];
                     gameVersion = gameWords[9];
@@ -366,17 +381,11 @@ namespace IOU_Helper
                     rayVersion = wc.DownloadString(url);
                     Tab.setCodes(code, gameVersion, rayVersion);
                     
-                    check = words[2];
-                    //UPDATE CHECKER
-                    if (check != version)
-                    {
-                        Image red = Image.FromFile("imgs/red.jpg");
-                        versionCheckToolStripMenuItem.Image = red;
-                    }
+                    
                 }
                 catch
                 {
-                    MessageBox.Show("Cannot load the current IOU version code from http://www.iouhelper.com/code.html");
+                    MessageBox.Show("Cannot get version codes from kongregate and cloudfront");
                     this.Close();
                 }
 
@@ -1108,8 +1117,6 @@ namespace IOU_Helper
                 string rawCode = wc.DownloadString("http://www.kongregate.com/games/iouRPG/idle-online-universe");
                 string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
                 string[] gameWords = rawCode.Split(new string[] {"kongregate_game_version=", "\";" }, StringSplitOptions.None);
-                string raw = wc.DownloadString("http://iouhelper.com/code.html");
-                string[] words = raw.Split('|');
 
                 code = codeWords[3];
                 gameVersion = gameWords[9];
@@ -1646,8 +1653,6 @@ namespace IOU_Helper
                 string rawCode = wc.DownloadString("http://www.kongregate.com/games/iouRPG/idle-online-universe");
                 string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
                 string[] gameWords = rawCode.Split(new string[] { "kongregate_game_version=", "\";" }, StringSplitOptions.None);
-                string raw = wc.DownloadString("http://iouhelper.com/code.html");
-                string[] words = raw.Split('|');
 
                 code = codeWords[3];
                 gameVersion = gameWords[9];
