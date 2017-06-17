@@ -71,6 +71,29 @@ namespace IOU_Helper
                 {
                     checkBoxHardRefresh.Checked = true;
                 }
+                textBoxChallenge.Text = "100";
+                if (radioButtonChallengeMilli.Checked != true)
+                {
+                    radioButtonClickMilliseconds.Checked = true;
+                }
+                if (checkBoxEnableClicker.Checked != true)
+                {
+                    checkBoxEnableClicker.Checked = true;
+                }
+                if (checkBoxEnableChallenge.Checked != true)
+                {
+                    checkBoxEnableChallenge.Checked = true;
+                }
+
+                //enable click and macro settings
+                if (checkBoxEnableClicker.Checked != true)
+                {
+                    checkBoxEnableClicker.Checked = true;
+                }
+                if (checkBoxEnableChallenge.Checked != true)
+                {
+                    checkBoxEnableChallenge.Checked = true;
+                }
             }
 
         }
@@ -89,6 +112,11 @@ namespace IOU_Helper
                 string refreshRadio = "";
                 string autoRadio = "";
                 string hardRefresh = "";
+                string challengeMacro = "";
+                string challengeMacroMilli = "";
+                string challengeMacroSeconds = "";
+                string enableClicker = "false";
+                string enableChallenge = "false";
 
                 int clicker = int.Parse(textBoxAutoClicker.Text);
                 if (radioButtonClickMilliseconds.Checked == false)
@@ -189,9 +217,32 @@ namespace IOU_Helper
                             _form1.autoClicker(milliSeconds);
                         }
                     }
+                    //challenge macro settings
+                    if (textBoxChallenge.Text != null)
+                    {
+                        if (radioButtonChallengeMilli.Checked == true)
+                        {
+                            int challengeMilli = int.Parse(textBoxChallenge.Text);
+                            _form1.autoMacro(challengeMilli);
+                        }
+                        else if (radioButtonChallengeSeconds.Checked == true)
+                        {
+                            int seconds = (int.Parse(textBoxChallenge.Text) * 1000);
+                            _form1.autoMacro(seconds);
+                        }
+                    }
+                    if (checkBoxEnableClicker.Checked == true) {
+                        enableClicker = "true";
+                        _form1.enableClicker(true);
+                    }
+                    if (checkBoxEnableChallenge.Checked == true) {
+                        enableChallenge = "true";
+                        _form1.enableMacro(true);
+                    }
+
 
                     applyDetails = (size + "," + refreshChecked + "," +
-                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh);
+                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh + "," + textBoxChallenge.Text + "," + enableClicker + "," + enableChallenge);
                     MessageBox.Show("Settings applied.");
                 }
                 else
@@ -219,6 +270,7 @@ namespace IOU_Helper
             string refreshRadio = "";
             string autoClicker = "";
             string autoRadio = "";
+            string challengeMacro = "";
 
             if (applyDetails == "")
             {
@@ -305,6 +357,17 @@ namespace IOU_Helper
                                 {
                                     checkBoxHardRefresh.Checked = true;
                                 }
+                            }
+                            if (lineRead[7] != null)
+                            {
+                                
+                            }
+                            if (lineRead[8] != null)
+                            {
+
+                            }
+                            if (lineRead[9] != null) {
+
                             }
                         }
                         catch (Exception ex)

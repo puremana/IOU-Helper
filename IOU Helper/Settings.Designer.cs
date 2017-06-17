@@ -39,6 +39,7 @@
             this.textBoxWidth = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBoxRefresh = new System.Windows.Forms.GroupBox();
+            this.checkBoxHardRefresh = new System.Windows.Forms.CheckBox();
             this.radioButtonRefreshMinutes = new System.Windows.Forms.RadioButton();
             this.radioButtonRefreshSeconds = new System.Windows.Forms.RadioButton();
             this.textBoxRefresh = new System.Windows.Forms.TextBox();
@@ -57,10 +58,17 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBoxHardRefresh = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.radioButtonChallengeSeconds = new System.Windows.Forms.RadioButton();
+            this.radioButtonChallengeMilli = new System.Windows.Forms.RadioButton();
+            this.textBoxChallenge = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkBoxEnableClicker = new System.Windows.Forms.CheckBox();
+            this.checkBoxEnableChallenge = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBoxRefresh.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -175,6 +183,16 @@
             this.groupBoxRefresh.TabStop = false;
             this.groupBoxRefresh.Text = "Refresh Settings";
             // 
+            // checkBoxHardRefresh
+            // 
+            this.checkBoxHardRefresh.AutoSize = true;
+            this.checkBoxHardRefresh.Location = new System.Drawing.Point(38, 112);
+            this.checkBoxHardRefresh.Name = "checkBoxHardRefresh";
+            this.checkBoxHardRefresh.Size = new System.Drawing.Size(220, 36);
+            this.checkBoxHardRefresh.TabIndex = 4;
+            this.checkBoxHardRefresh.Text = "Hard Refresh";
+            this.checkBoxHardRefresh.UseVisualStyleBackColor = true;
+            // 
             // radioButtonRefreshMinutes
             // 
             this.radioButtonRefreshMinutes.AutoSize = true;
@@ -218,7 +236,7 @@
             // 
             // buttonApply
             // 
-            this.buttonApply.Location = new System.Drawing.Point(640, 627);
+            this.buttonApply.Location = new System.Drawing.Point(640, 863);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(283, 60);
             this.buttonApply.TabIndex = 2;
@@ -228,7 +246,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(332, 627);
+            this.buttonCancel.Location = new System.Drawing.Point(332, 863);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(283, 60);
             this.buttonCancel.TabIndex = 3;
@@ -238,7 +256,7 @@
             // 
             // buttonDefault
             // 
-            this.buttonDefault.Location = new System.Drawing.Point(29, 627);
+            this.buttonDefault.Location = new System.Drawing.Point(29, 863);
             this.buttonDefault.Name = "buttonDefault";
             this.buttonDefault.Size = new System.Drawing.Size(283, 60);
             this.buttonDefault.TabIndex = 4;
@@ -301,7 +319,7 @@
             // 
             // buttonLoadSettings
             // 
-            this.buttonLoadSettings.Location = new System.Drawing.Point(29, 693);
+            this.buttonLoadSettings.Location = new System.Drawing.Point(29, 929);
             this.buttonLoadSettings.Name = "buttonLoadSettings";
             this.buttonLoadSettings.Size = new System.Drawing.Size(283, 60);
             this.buttonLoadSettings.TabIndex = 6;
@@ -311,7 +329,7 @@
             // 
             // buttonSaveSettings
             // 
-            this.buttonSaveSettings.Location = new System.Drawing.Point(332, 693);
+            this.buttonSaveSettings.Location = new System.Drawing.Point(332, 929);
             this.buttonSaveSettings.Name = "buttonSaveSettings";
             this.buttonSaveSettings.Size = new System.Drawing.Size(283, 60);
             this.buttonSaveSettings.TabIndex = 7;
@@ -321,7 +339,7 @@
             // 
             // buttonSaveAsSettings
             // 
-            this.buttonSaveAsSettings.Location = new System.Drawing.Point(640, 693);
+            this.buttonSaveAsSettings.Location = new System.Drawing.Point(640, 929);
             this.buttonSaveAsSettings.Name = "buttonSaveAsSettings";
             this.buttonSaveAsSettings.Size = new System.Drawing.Size(283, 60);
             this.buttonSaveAsSettings.TabIndex = 8;
@@ -338,27 +356,92 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(145, 583);
+            this.label2.Location = new System.Drawing.Point(145, 819);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(682, 32);
             this.label2.TabIndex = 9;
             this.label2.Text = "(Applying these settings will perform an internal load)";
             // 
-            // checkBoxHardRefresh
+            // groupBox3
             // 
-            this.checkBoxHardRefresh.AutoSize = true;
-            this.checkBoxHardRefresh.Location = new System.Drawing.Point(38, 112);
-            this.checkBoxHardRefresh.Name = "checkBoxHardRefresh";
-            this.checkBoxHardRefresh.Size = new System.Drawing.Size(220, 36);
-            this.checkBoxHardRefresh.TabIndex = 4;
-            this.checkBoxHardRefresh.Text = "Hard Refresh";
-            this.checkBoxHardRefresh.UseVisualStyleBackColor = true;
+            this.groupBox3.Controls.Add(this.radioButtonChallengeSeconds);
+            this.groupBox3.Controls.Add(this.radioButtonChallengeMilli);
+            this.groupBox3.Controls.Add(this.textBoxChallenge);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Location = new System.Drawing.Point(23, 594);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(904, 152);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Challenge Ability Settings";
+            // 
+            // radioButtonChallengeSeconds
+            // 
+            this.radioButtonChallengeSeconds.AutoSize = true;
+            this.radioButtonChallengeSeconds.Location = new System.Drawing.Point(585, 87);
+            this.radioButtonChallengeSeconds.Name = "radioButtonChallengeSeconds";
+            this.radioButtonChallengeSeconds.Size = new System.Drawing.Size(163, 36);
+            this.radioButtonChallengeSeconds.TabIndex = 3;
+            this.radioButtonChallengeSeconds.Text = "Seconds";
+            this.radioButtonChallengeSeconds.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonChallengeMilli
+            // 
+            this.radioButtonChallengeMilli.AutoSize = true;
+            this.radioButtonChallengeMilli.Checked = true;
+            this.radioButtonChallengeMilli.Location = new System.Drawing.Point(585, 39);
+            this.radioButtonChallengeMilli.Name = "radioButtonChallengeMilli";
+            this.radioButtonChallengeMilli.Size = new System.Drawing.Size(209, 36);
+            this.radioButtonChallengeMilli.TabIndex = 2;
+            this.radioButtonChallengeMilli.TabStop = true;
+            this.radioButtonChallengeMilli.Text = "Milliseconds";
+            this.radioButtonChallengeMilli.UseVisualStyleBackColor = true;
+            // 
+            // textBoxChallenge
+            // 
+            this.textBoxChallenge.Location = new System.Drawing.Point(309, 67);
+            this.textBoxChallenge.Name = "textBoxChallenge";
+            this.textBoxChallenge.Size = new System.Drawing.Size(213, 38);
+            this.textBoxChallenge.TabIndex = 1;
+            this.textBoxChallenge.Text = "100";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(74, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 32);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Macro every";
+            // 
+            // checkBoxEnableClicker
+            // 
+            this.checkBoxEnableClicker.AutoSize = true;
+            this.checkBoxEnableClicker.Location = new System.Drawing.Point(118, 752);
+            this.checkBoxEnableClicker.Name = "checkBoxEnableClicker";
+            this.checkBoxEnableClicker.Size = new System.Drawing.Size(290, 36);
+            this.checkBoxEnableClicker.TabIndex = 10;
+            this.checkBoxEnableClicker.Text = "Enable Autoclicker";
+            this.checkBoxEnableClicker.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxEnableChallenge
+            // 
+            this.checkBoxEnableChallenge.AutoSize = true;
+            this.checkBoxEnableChallenge.Location = new System.Drawing.Point(489, 752);
+            this.checkBoxEnableChallenge.Name = "checkBoxEnableChallenge";
+            this.checkBoxEnableChallenge.Size = new System.Drawing.Size(365, 36);
+            this.checkBoxEnableChallenge.TabIndex = 11;
+            this.checkBoxEnableChallenge.Text = "Enable Challenge Macro";
+            this.checkBoxEnableChallenge.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 771);
+            this.ClientSize = new System.Drawing.Size(964, 1019);
+            this.Controls.Add(this.checkBoxEnableChallenge);
+            this.Controls.Add(this.checkBoxEnableClicker);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSaveAsSettings);
             this.Controls.Add(this.buttonSaveSettings);
@@ -380,6 +463,8 @@
             this.groupBoxRefresh.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -416,5 +501,12 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBoxHardRefresh;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton radioButtonChallengeSeconds;
+        private System.Windows.Forms.RadioButton radioButtonChallengeMilli;
+        private System.Windows.Forms.TextBox textBoxChallenge;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckBox checkBoxEnableClicker;
+        private System.Windows.Forms.CheckBox checkBoxEnableChallenge;
     }
 }

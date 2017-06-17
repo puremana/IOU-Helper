@@ -77,6 +77,10 @@ namespace IOU_Helper
         private int formLargeWidth = 939;
         private int formLargeHeight = 795;
 
+        //enablers
+        private bool enableClick = true;
+        private bool enableMac = true;
+
         public Form1()
         {
             InitializeComponent();
@@ -352,7 +356,7 @@ namespace IOU_Helper
                 try
                 {
                     string rawCode = wc.DownloadString("http://www.kongregate.com/games/iouRPG/idle-online-universe");
-                    string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
+                    string[] codeWords = rawCode.Split(new string[] { "API_AS3_", ".swf" }, StringSplitOptions.None);
                     string[] gameWords = rawCode.Split(new string[] {"kongregate_game_version=", "\";" }, StringSplitOptions.None);
                     
                     try
@@ -1668,6 +1672,20 @@ namespace IOU_Helper
             }
 
             singleRefresh();
+        }
+
+        public void autoMacro(int interval) {
+            abilityTimer.Interval = interval;
+        }
+
+        public void enableClicker(bool enable)
+        {
+            autoClickTimer.Enabled = enable;
+        }
+
+        public void enableMacro(bool enable)
+        {
+            abilityTimer.Enabled = enable;
         }
     }
 }
