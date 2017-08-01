@@ -54,6 +54,7 @@
             this.startAutoClickerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.abilitesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardRefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hardRefreshAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +83,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.IOUclient = new WebKit.WebKitBrowser();
             this.abilityTimer = new System.Windows.Forms.Timer(this.components);
-            this.hardRefreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -100,7 +100,7 @@
             this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1264, 52);
+            this.menuStrip1.Size = new System.Drawing.Size(1264, 49);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -269,7 +269,7 @@
             this.copyAccURLToolStripMenuItem,
             this.alwaysOnTopTToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(102, 48);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // startAutoClickerToolStripMenuItem1
@@ -292,6 +292,13 @@
             this.refreshToolStripMenuItem1.Size = new System.Drawing.Size(411, 46);
             this.refreshToolStripMenuItem1.Text = "Refresh (F5)";
             this.refreshToolStripMenuItem1.Click += new System.EventHandler(this.refreshToolStripMenuItem1_Click);
+            // 
+            // hardRefreshToolStripMenuItem
+            // 
+            this.hardRefreshToolStripMenuItem.Name = "hardRefreshToolStripMenuItem";
+            this.hardRefreshToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
+            this.hardRefreshToolStripMenuItem.Text = "Hard Refresh";
+            this.hardRefreshToolStripMenuItem.Click += new System.EventHandler(this.hardRefreshToolStripMenuItem_Click);
             // 
             // refreshAllToolStripMenuItem
             // 
@@ -528,13 +535,6 @@
             // 
             this.abilityTimer.Tick += new System.EventHandler(this.abilityTimer_Tick);
             // 
-            // hardRefreshToolStripMenuItem
-            // 
-            this.hardRefreshToolStripMenuItem.Name = "hardRefreshToolStripMenuItem";
-            this.hardRefreshToolStripMenuItem.Size = new System.Drawing.Size(411, 46);
-            this.hardRefreshToolStripMenuItem.Text = "Hard Refresh";
-            this.hardRefreshToolStripMenuItem.Click += new System.EventHandler(this.hardRefreshToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -547,7 +547,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IOU Helper v1.5";
+            this.Text = "IOU Helper v1.6";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);

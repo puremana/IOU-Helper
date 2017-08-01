@@ -24,7 +24,7 @@ namespace IOU_Helper
         static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
         //Current version number
-        private string version = "1.5";
+        private string version = "1.6";
         private string check = "";
 
         // constants for the mouse_input() API function
