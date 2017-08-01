@@ -74,7 +74,7 @@ namespace IOU_Helper
                 textBoxChallenge.Text = "100";
                 if (radioButtonChallengeMilli.Checked != true)
                 {
-                    radioButtonClickMilliseconds.Checked = true;
+                    radioButtonChallengeMilli.Checked = true;
                 }
                 if (checkBoxEnableClicker.Checked != true)
                 {
@@ -112,9 +112,7 @@ namespace IOU_Helper
                 string refreshRadio = "";
                 string autoRadio = "";
                 string hardRefresh = "";
-                string challengeMacro = "";
-                string challengeMacroMilli = "";
-                string challengeMacroSeconds = "";
+                string challengeRadio = "";
                 string enableClicker = "false";
                 string enableChallenge = "false";
 
@@ -222,11 +220,13 @@ namespace IOU_Helper
                     {
                         if (radioButtonChallengeMilli.Checked == true)
                         {
+                            challengeRadio = "milliseconds";
                             int challengeMilli = int.Parse(textBoxChallenge.Text);
                             _form1.autoMacro(challengeMilli);
                         }
                         else if (radioButtonChallengeSeconds.Checked == true)
                         {
+                            challengeRadio = "seconds";
                             int seconds = (int.Parse(textBoxChallenge.Text) * 1000);
                             _form1.autoMacro(seconds);
                         }
@@ -240,9 +240,8 @@ namespace IOU_Helper
                         _form1.enableMacro(true);
                     }
 
-
                     applyDetails = (size + "," + refreshChecked + "," +
-                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh + "," + textBoxChallenge.Text + "," + enableClicker + "," + enableChallenge);
+                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh + "," + textBoxChallenge.Text + "," + challengeRadio + "," + enableClicker + "," + enableChallenge);
                     MessageBox.Show("Settings applied.");
                 }
                 else
@@ -261,7 +260,7 @@ namespace IOU_Helper
         {
             //Form Settings
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-
+            this.Height = 475;
             string[] lineRead = null;
             string size = "";
             string lineReadFull = "";
@@ -270,7 +269,6 @@ namespace IOU_Helper
             string refreshRadio = "";
             string autoClicker = "";
             string autoRadio = "";
-            string challengeMacro = "";
 
             if (applyDetails == "")
             {
@@ -360,14 +358,39 @@ namespace IOU_Helper
                             }
                             if (lineRead[7] != null)
                             {
-                                
+                                textBoxChallenge.Text = lineRead[7];
                             }
                             if (lineRead[8] != null)
                             {
-
+                                if (lineRead[8] == "milliseconds")
+                                {
+                                    radioButtonChallengeMilli.Enabled = true;
+                                }
+                                else if (lineRead[8] == "seconds")
+                                {
+                                    radioButtonChallengeSeconds.Enabled = true;
+                                }
                             }
                             if (lineRead[9] != null) {
-
+                                if (lineRead[9] == "true")
+                                {
+                                    checkBoxEnableClicker.Checked = true;
+                                }
+                                else
+                                {
+                                    checkBoxEnableClicker.Checked = false;
+                                }
+                            }
+                            if (lineRead[10] != null)
+                            {
+                                if (lineRead[10] == "true")
+                                {
+                                    checkBoxEnableChallenge.Checked = true;
+                                }
+                                else
+                                {
+                                    checkBoxEnableChallenge.Checked = false;
+                                }
                             }
                         }
                         catch (Exception ex)
@@ -466,6 +489,43 @@ namespace IOU_Helper
                                 checkBoxHardRefresh.Checked = true;
                             }
                         }
+                        if (lineRead[7] != null)
+                        {
+                            textBoxChallenge.Text = lineRead[7];
+                        }
+                        if (lineRead[8] != null)
+                        {
+                            if (lineRead[8] == "milliseconds")
+                            {
+                                radioButtonChallengeMilli.Enabled = true;
+                            }
+                            else if (lineRead[8] == "seconds")
+                            {
+                                radioButtonChallengeSeconds.Enabled = true;
+                            }
+                        }
+                        if (lineRead[9] != null)
+                        {
+                            if (lineRead[9] == "true")
+                            {
+                                checkBoxEnableClicker.Checked = true;
+                            }
+                            else
+                            {
+                                checkBoxEnableClicker.Checked = false;
+                            }
+                        }
+                        if (lineRead[10] != null)
+                        {
+                            if (lineRead[10] == "true")
+                            {
+                                checkBoxEnableChallenge.Checked = true;
+                            }
+                            else
+                            {
+                                checkBoxEnableChallenge.Checked = false;
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -537,7 +597,9 @@ namespace IOU_Helper
                 string refreshRadio = " ";
                 string autoRadio = " ";
                 string hardRefresh = " ";
-
+                string challengeRadio = " ";
+                string enableClicker = " ";
+                string enableChallenge = " ";
 
                 if (radioButtonSmall.Checked == true)
                 {
@@ -587,8 +649,29 @@ namespace IOU_Helper
                     hardRefresh = "unchecked";
                 }
 
-                writer.WriteLine(size + "," + refreshChecked + "," + 
-                   textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh);
+                //challenge macro settings
+                if (textBoxChallenge.Text != null)
+                {
+                    if (radioButtonChallengeMilli.Checked == true)
+                    {
+                        challengeRadio = "milliseconds";
+                    }
+                    else
+                    {
+                        challengeRadio = "seconds";
+                    }
+                }
+                if (checkBoxEnableClicker.Checked == true)
+                {
+                    enableClicker = "true";
+                }
+                if (checkBoxEnableChallenge.Checked == true)
+                {
+                    enableChallenge = "true";
+                }
+
+                writer.WriteLine(size + "," + refreshChecked + "," +
+                   textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh + "," + textBoxChallenge.Text + "," + challengeRadio + "," + enableClicker + "," + enableChallenge);
 
                 writer.Close();
                 MessageBox.Show("Settings saved to Auto Save File.");
@@ -699,6 +782,43 @@ namespace IOU_Helper
                                     checkBoxHardRefresh.Checked = true;
                                 }
                             }
+                            if (lineRead[7] != null)
+                            {
+                                textBoxChallenge.Text = lineRead[7];
+                            }
+                            if (lineRead[8] != null)
+                            {
+                                if (lineRead[8] == "milliseconds")
+                                {
+                                    radioButtonChallengeMilli.Checked = true;
+                                }
+                                else if (lineRead[8] == "seconds")
+                                {
+                                    radioButtonChallengeSeconds.Checked = true;
+                                }
+                            }
+                            if (lineRead[9] != null)
+                            {
+                                if (lineRead[9] == "true")
+                                {
+                                    checkBoxEnableClicker.Checked = true;
+                                }
+                                else
+                                {
+                                    checkBoxEnableClicker.Checked = false;
+                                }
+                            }
+                            if (lineRead[10] != null)
+                            {
+                                if (lineRead[10] == "true")
+                                {
+                                    checkBoxEnableChallenge.Checked = true;
+                                }
+                                else
+                                {
+                                    checkBoxEnableChallenge.Checked = false;
+                                }
+                            }
                             else
                             {
                                 break;
@@ -740,6 +860,9 @@ namespace IOU_Helper
                     string refreshRadio = " ";
                     string autoRadio = " ";
                     string hardRefresh = " ";
+                    string challengeRadio = " ";
+                    string enableClicker = "false";
+                    string enableChallenge = "false";
 
                     if (radioButtonSmall.Checked == true)
                     {
@@ -789,9 +912,30 @@ namespace IOU_Helper
                         hardRefresh = "unchecked";
                     }
 
-                    writer.WriteLine(size + "," + refreshChecked + "," +
-                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh);
+                    //challenge macro settings
+                    if (radioButtonChallengeMilli.Checked == true)
+                    {
+                        challengeRadio = "milliseconds";
+                    }
+                    else
+                    {
+                        challengeRadio = "seconds";
+                    }
 
+                    if (checkBoxEnableClicker.Checked == true)
+                    {
+                        enableClicker = "true";
+                    }
+                    if (checkBoxEnableChallenge.Checked == true)
+                    {
+                        enableChallenge = "true";
+                    }
+
+                    writer.WriteLine(size + "," + refreshChecked + "," +
+                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh + "," + textBoxChallenge.Text + "," + challengeRadio + "," + enableClicker + "," + enableChallenge);
+
+                    MessageBox.Show(size + "," + refreshChecked + "," +
+                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh + "," + textBoxChallenge.Text + "," + challengeRadio + "," + enableClicker + "," + enableChallenge);
                     writer.Close();
                 }
                 catch (Exception ex)

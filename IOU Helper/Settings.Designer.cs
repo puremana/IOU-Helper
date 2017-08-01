@@ -438,7 +438,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 1019);
+            this.ClientSize = new System.Drawing.Size(964, 1212);
             this.Controls.Add(this.checkBoxEnableChallenge);
             this.Controls.Add(this.checkBoxEnableClicker);
             this.Controls.Add(this.groupBox3);
