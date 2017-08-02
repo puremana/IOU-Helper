@@ -385,7 +385,7 @@ namespace IOU_Helper
                     rayVersion = wc.DownloadString(url);
                     Tab.setCodes(code, gameVersion, rayVersion);
                     
-                    
+          
                 }
                 catch
                 {
@@ -1432,7 +1432,8 @@ namespace IOU_Helper
             myTabPage.Controls.Add(IOUclient2);
             IOUclient2.Visible = true;
             setClient(tabControl, IOUclient2);
-            System.Uri iouURL = new System.Uri("http://d2452urjrn3oas.cloudfront.net/iou.swf?v" + rayVersion);
+            System.Uri iouURL = new System.Uri("http://d2452urjrn3oas.cloudfront.net/iou.swf?v=" + rayVersion);
+            
             IOUclient2.Url = iouURL;
             Tab tab = new Tab(IOUclient2, myTabPage);
             IOURPGtabList.Add(tab);
@@ -1671,7 +1672,7 @@ namespace IOU_Helper
             try
             {
                 string rawCode = wc.DownloadString("http://www.kongregate.com/games/iouRPG/idle-online-universe");
-                string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
+                string[] codeWords = rawCode.Split(new string[] { "API_AS3_", ".swf" }, StringSplitOptions.None);
                 string[] gameWords = rawCode.Split(new string[] { "kongregate_game_version=", "\";" }, StringSplitOptions.None);
 
                 code = codeWords[3];
