@@ -673,7 +673,15 @@ namespace IOU_Helper
 
         private void autoClickTimer_Tick(object sender, EventArgs e)
         {
-            LeftClick();
+            if (ClientRectangle.Contains(PointToClient(Control.MousePosition)))
+            {
+                LeftClick();
+            }
+            else
+            {
+                autoClickTimer.Enabled = false;
+                MessageBox.Show("Autoclicker has been disabled due to cursor moving outside client bounds.");
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -1031,12 +1039,20 @@ namespace IOU_Helper
 
         private void abilityTimer_Tick(object sender, EventArgs e)
         {
-            SendKeys.Send("{1}");
-            SendKeys.Send("{2}");
-            SendKeys.Send("{3}");
-            SendKeys.Send("{4}");
-            SendKeys.Send("{5}");
-            SendKeys.Send("{6}");
+            if (ClientRectangle.Contains(PointToClient(Control.MousePosition)))
+            {
+                SendKeys.Send("{1}");
+                SendKeys.Send("{2}");
+                SendKeys.Send("{3}");
+                SendKeys.Send("{4}");
+                SendKeys.Send("{5}");
+                SendKeys.Send("{6}");
+            }
+            else
+            {
+                abilityTimer.Enabled = false;
+                MessageBox.Show("Challenge Macro has been disabled due to cursor moving outside client bounds.");
+            }
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
