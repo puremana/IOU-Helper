@@ -83,6 +83,8 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.IOUclient = new WebKit.WebKitBrowser();
             this.abilityTimer = new System.Windows.Forms.Timer(this.components);
+            this.saveOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.carcCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -100,7 +102,7 @@
             this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1264, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(1264, 52);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -112,11 +114,12 @@
             this.runTestClientToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
+            this.saveOnlyToolStripMenuItem,
             this.loadToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 45);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 48);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newTabToolStripMenuItem
@@ -176,7 +179,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(137, 45);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(137, 48);
             this.optionsToolStripMenuItem.Text = "Settings";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
@@ -190,9 +193,10 @@
             this.iOUForumToolStripMenuItem,
             this.iOUWikiToolStripMenuItem,
             this.petAnalyzerFerretToolStripMenuItem,
+            this.carcCalculatorToolStripMenuItem,
             this.versionCheckToolStripMenuItem});
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
-            this.linksToolStripMenuItem.Size = new System.Drawing.Size(96, 45);
+            this.linksToolStripMenuItem.Size = new System.Drawing.Size(96, 48);
             this.linksToolStripMenuItem.Text = "Links";
             // 
             // iOUHelperToolStripMenuItem
@@ -269,7 +273,7 @@
             this.copyAccURLToolStripMenuItem,
             this.alwaysOnTopTToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(102, 45);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(102, 48);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // startAutoClickerToolStripMenuItem1
@@ -535,6 +539,19 @@
             // 
             this.abilityTimer.Tick += new System.EventHandler(this.abilityTimer_Tick);
             // 
+            // saveOnlyToolStripMenuItem
+            // 
+            this.saveOnlyToolStripMenuItem.Name = "saveOnlyToolStripMenuItem";
+            this.saveOnlyToolStripMenuItem.Size = new System.Drawing.Size(366, 46);
+            this.saveOnlyToolStripMenuItem.Text = "Save Only";
+            // 
+            // carcCalculatorToolStripMenuItem
+            // 
+            this.carcCalculatorToolStripMenuItem.Name = "carcCalculatorToolStripMenuItem";
+            this.carcCalculatorToolStripMenuItem.Size = new System.Drawing.Size(409, 46);
+            this.carcCalculatorToolStripMenuItem.Text = "Card Calculator";
+            this.carcCalculatorToolStripMenuItem.Click += new System.EventHandler(this.carcCalculatorToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -619,6 +636,8 @@
         private System.Windows.Forms.ToolStripMenuItem alwaysOnTopTToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyAccURLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hardRefreshToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem carcCalculatorToolStripMenuItem;
     }
 }
 

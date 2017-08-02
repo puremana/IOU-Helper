@@ -1704,5 +1704,10 @@ namespace IOU_Helper
         {
             enableMac = enable;
         }
+
+        private void carcCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://iouhelper.com/cards.html");
+        }
     }
 }
