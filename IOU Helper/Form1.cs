@@ -678,7 +678,7 @@ namespace IOU_Helper
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if ((keyData == Keys.F1) && (autoClickTimer.Enabled == false))
+            if ((keyData == Keys.F1) && (autoClickTimer.Enabled == false) && (enableClick == true))
             {
                 autoClickTimer.Enabled = true;
                 startAutoClickerToolStripMenuItem1.Text = "Stop AutoClicker (F2)";
@@ -690,7 +690,7 @@ namespace IOU_Helper
                 startAutoClickerToolStripMenuItem1.Text = "Start AutoClicker (F1)";
                 return true;
             }
-            else if (keyData == Keys.F3)
+            else if ((keyData == Keys.F3) && (enableMac == true))
             {
                 if (abilityTimer.Enabled == false)
                 {
@@ -1680,12 +1680,12 @@ namespace IOU_Helper
 
         public void enableClicker(bool enable)
         {
-            autoClickTimer.Enabled = enable;
+            enableClick = enable;
         }
 
         public void enableMacro(bool enable)
         {
-            abilityTimer.Enabled = enable;
+            enableMac = enable;
         }
     }
 }
