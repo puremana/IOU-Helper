@@ -37,6 +37,7 @@
             this.runTestClientToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,6 +50,7 @@
             this.iOUForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOUWikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.petAnalyzerFerretToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.carcCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startAutoClickerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,8 +85,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.IOUclient = new WebKit.WebKitBrowser();
             this.abilityTimer = new System.Windows.Forms.Timer(this.components);
-            this.saveOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.carcCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -156,6 +156,13 @@
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(366, 46);
             this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            // 
+            // saveOnlyToolStripMenuItem
+            // 
+            this.saveOnlyToolStripMenuItem.Name = "saveOnlyToolStripMenuItem";
+            this.saveOnlyToolStripMenuItem.Size = new System.Drawing.Size(366, 46);
+            this.saveOnlyToolStripMenuItem.Text = "Save Only";
+            this.saveOnlyToolStripMenuItem.Click += new System.EventHandler(this.saveOnlyToolStripMenuItem_Click);
             // 
             // loadToolStripMenuItem
             // 
@@ -247,6 +254,13 @@
             this.petAnalyzerFerretToolStripMenuItem.Size = new System.Drawing.Size(409, 46);
             this.petAnalyzerFerretToolStripMenuItem.Text = "Pet Analyzer (Indigo)";
             this.petAnalyzerFerretToolStripMenuItem.Click += new System.EventHandler(this.petAnalyzerFerretToolStripMenuItem_Click);
+            // 
+            // carcCalculatorToolStripMenuItem
+            // 
+            this.carcCalculatorToolStripMenuItem.Name = "carcCalculatorToolStripMenuItem";
+            this.carcCalculatorToolStripMenuItem.Size = new System.Drawing.Size(409, 46);
+            this.carcCalculatorToolStripMenuItem.Text = "Card Calculator";
+            this.carcCalculatorToolStripMenuItem.Click += new System.EventHandler(this.carcCalculatorToolStripMenuItem_Click);
             // 
             // versionCheckToolStripMenuItem
             // 
@@ -538,19 +552,6 @@
             // abilityTimer
             // 
             this.abilityTimer.Tick += new System.EventHandler(this.abilityTimer_Tick);
-            // 
-            // saveOnlyToolStripMenuItem
-            // 
-            this.saveOnlyToolStripMenuItem.Name = "saveOnlyToolStripMenuItem";
-            this.saveOnlyToolStripMenuItem.Size = new System.Drawing.Size(366, 46);
-            this.saveOnlyToolStripMenuItem.Text = "Save Only";
-            // 
-            // carcCalculatorToolStripMenuItem
-            // 
-            this.carcCalculatorToolStripMenuItem.Name = "carcCalculatorToolStripMenuItem";
-            this.carcCalculatorToolStripMenuItem.Size = new System.Drawing.Size(409, 46);
-            this.carcCalculatorToolStripMenuItem.Text = "Card Calculator";
-            this.carcCalculatorToolStripMenuItem.Click += new System.EventHandler(this.carcCalculatorToolStripMenuItem_Click);
             // 
             // Form1
             // 

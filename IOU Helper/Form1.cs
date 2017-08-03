@@ -1709,5 +1709,11 @@ namespace IOU_Helper
         {
             Process.Start("http://iouhelper.com/cards.html");
         }
+
+        private void saveOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveOnly saveOnlyForm = new SaveOnly(tabList, this);
+            saveOnlyForm.Show();
+        }
     }
 }
