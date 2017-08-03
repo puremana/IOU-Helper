@@ -268,7 +268,7 @@ namespace IOU_Helper
         {
             //Form Settings
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.Height = 475;
+            this.Height = 469;
             string[] lineRead = null;
             string size = "";
             string lineReadFull = "";

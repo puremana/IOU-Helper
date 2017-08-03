@@ -400,6 +400,10 @@ namespace IOU_Helper
                     lineReadFull = reader.ReadLine();
                     lineRead = lineReadFull.Split(',');
 
+                    //writer.WriteLine(size + "," + refreshChecked + "," +
+//                       textBoxRefresh.Text + "," + refreshRadio + "," + textBoxAutoClicker.Text + "," + autoRadio + "," + hardRefresh + "," + textBoxChallenge.Text + "," + challengeRadio + "," + enableClicker + "," + enableChallenge);
+
+
                     try
                     {
                         if (lineRead[0] != null)
@@ -415,6 +419,33 @@ namespace IOU_Helper
                         {
                             break;
                         }
+
+                        if (lineRead[1] == "checked")
+                        {
+                            int interval = 0;
+                            if (lineRead[3] == "seconds")
+                            {
+                                interval = int.Parse(lineRead[2]) * 1000;
+                            }
+                            else if (lineRead[3] == "minutes")
+                            {
+                                interval = int.Parse(lineRead[2]) * 60000;
+                            }
+                            refreshTimer.Interval = interval;
+                            refreshTimer.Enabled = true;
+                        }
+
+                        if (lineRead[4] != "")
+                        {
+                            if (lineRead[5] == "milliseconds")
+                            {
+                                autoClickTimer.Interval = int.Parse(lineRead[4]);
+                            }
+                            else if (lineRead[5] == "seconds")
+                            {
+                                autoClickTimer.Interval = int.Parse(lineRead[4]) * 1000;
+                            }
+                        }
                         if (lineRead[6] != null)
                         {
                             if (lineRead[6] == "checked")
@@ -424,6 +455,39 @@ namespace IOU_Helper
                             else
                             {
                                 hardRefresh = false;
+                            }
+                        }
+                        if (lineRead[7] != "")
+                        {
+                            if (lineRead[8] == "milliseconds")
+                            {
+                                abilityTimer.Interval = int.Parse(lineRead[7]);
+                            }
+                            else if (lineRead[8] == "seconds")
+                            {
+                                abilityTimer.Interval = int.Parse(lineRead[7]) * 1000;
+                            }
+                        }
+                        if (lineRead[9] != null)
+                        {
+                            if (lineRead[9] == "true")
+                            {
+                                enableClick = true;
+                            }
+                            else if (lineRead[9] == "false")
+                            {
+                                enableClick = false;
+                            }
+                        }
+                        if (lineRead[10] != null)
+                        {
+                            if (lineRead[10] == "true")
+                            {
+                                enableMac = true;
+                            }
+                            else if (lineRead[10] == "false")
+                            {
+                                enableMac = false;
                             }
                         }
                     }
