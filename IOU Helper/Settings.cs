@@ -696,6 +696,7 @@ namespace IOU_Helper
             {
                 MessageBox.Show(ex.ToString());
             }
+            this.Close();
         }
 
         private void buttonLoadSettings_Click(object sender, EventArgs e)
@@ -960,6 +961,7 @@ namespace IOU_Helper
                 {
                     MessageBox.Show(ex.ToString());
                 }
+                this.Close();
             }
         }
 

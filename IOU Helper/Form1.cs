@@ -612,8 +612,15 @@ namespace IOU_Helper
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Settings settingsForm = new Settings(this);
-            settingsForm.Show();
+            if (Application.OpenForms.OfType<Settings>().Count() == 1)
+            {
+                Application.OpenForms.OfType<Settings>().First().BringToFront();
+            }
+            else
+            {
+                Settings settingsForm = new Settings(this);
+                settingsForm.Show();
+            } 
         }
 
         private void refreshToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1202,7 +1209,7 @@ namespace IOU_Helper
                 string[] codeWords = rawCode.Split(new string[] { "FAPI_AS3_", ".swf" }, StringSplitOptions.None);
                 string[] gameWords = rawCode.Split(new string[] {"kongregate_game_version=", "\";" }, StringSplitOptions.None);
 
-                code = codeWords[3];
+                code = codeWords[2];
                 gameVersion = gameWords[9];
                 Random rnd = new Random();
                 string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
@@ -1414,8 +1421,15 @@ namespace IOU_Helper
 
         private void timersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Timers timersForm = new Timers(tabList, IOURPGtabList, this);
-            timersForm.Show();
+            if (Application.OpenForms.OfType<Timers>().Count() == 1)
+            {
+                Application.OpenForms.OfType<Timers>().First().BringToFront();
+            }
+            else
+            {
+                Timers timersForm = new Timers(tabList, IOURPGtabList, this);
+                timersForm.Show();
+            }
         }
 
         private void screenshotToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1776,8 +1790,15 @@ namespace IOU_Helper
 
         private void saveOnlyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveOnly saveOnlyForm = new SaveOnly(tabList, this);
-            saveOnlyForm.Show();
+            if (Application.OpenForms.OfType<SaveOnly>().Count() == 1)
+            {
+                Application.OpenForms.OfType<SaveOnly>().First().BringToFront();
+            }
+            else
+            {
+                SaveOnly saveOnlyForm = new SaveOnly(tabList, this);
+                saveOnlyForm.Show();
+            }
         }
     }
 }

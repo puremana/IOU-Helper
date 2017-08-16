@@ -104,6 +104,7 @@ namespace IOU_Helper
                 {
                     MessageBox.Show(ex.ToString());
                 }
+                this.Close();
             }
         }
     }
