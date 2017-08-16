@@ -751,6 +751,7 @@ namespace IOU_Helper
             else
             {
                 autoClickTimer.Enabled = false;
+                startAutoClickerToolStripMenuItem1.Text = "Start AutoClicker (F1)";
                 MessageBox.Show("Autoclicker has been disabled due to cursor moving outside client bounds.");
             }
         }
@@ -1122,6 +1123,7 @@ namespace IOU_Helper
             else
             {
                 abilityTimer.Enabled = false;
+                abilitesToolStripMenuItem.Text = "Start Abilities (F3)";
                 MessageBox.Show("Challenge Macro has been disabled due to cursor moving outside client bounds.");
             }
         }
