@@ -1273,15 +1273,8 @@ namespace IOU_Helper
             if (theSize == "small")
             {
                 size = "small";
-                if (tabList.Count != 0)
-                {
-                    internalLoad();
-                }
+                internalLoad();
 
-                if (IOURPGtabList.Count != 0)
-                {
-                    IOURPGinternalLoad();
-                }
                 tabControl.Width = tabSmallWidth;
                 tabControl.Height = tabSmallHeight;
                 this.Size = new Size(tabSmallWidth, tabSmallHeight);
@@ -1289,15 +1282,8 @@ namespace IOU_Helper
             else if (theSize == "medium")
             {
                 size = "medium";
-                if (tabList.Count != 0)
-                {
-                    internalLoad();
-                }
+                internalLoad();
 
-                if (IOURPGtabList.Count != 0)
-                {
-                    IOURPGinternalLoad();
-                }
                 tabControl.Width = tabMediumWidth;
                 tabControl.Height = tabMediumHeight;
                 this.Size = new Size(tabMediumWidth, tabMediumHeight);
@@ -1305,15 +1291,8 @@ namespace IOU_Helper
             else if (theSize == "large")
             {
                 size = "large";
-                if (tabList.Count != 0)
-                {
-                    internalLoad();
-                }
+                internalLoad();
 
-                if (IOURPGtabList.Count != 0)
-                {
-                    IOURPGinternalLoad();
-                }
                 tabControl.Width = tabLargeWidth;
                 tabControl.Height = tabLargeHeight;
                 this.Size = new Size(tabLargeWidth, tabLargeHeight);
@@ -1321,58 +1300,79 @@ namespace IOU_Helper
         }
         private void internalLoad()
         {
-            string[] lineRead = null;
-            string details = "";
-            foreach (Tab tab in tabList)
+            if (IOURPGtabList.Count != 0)
             {
-                details = details + tab.ToString() + ",";
+                foreach (Tab tab in IOURPGtabList)
+                {
+                    setClient(tabControl, tab.getClient());
+                }
             }
-            tabList.Clear();
-            tabControl.TabPages.Clear();
-            lineRead = details.Split(',');
-            for (int i = 0; i < lineRead.Length - 2; i++)
+            if (tabList.Count != 0)
             {
-                //Set the textboxes equal to data
-                if (lineRead[i] != null)
+                foreach (Tab tab in tabList)
                 {
-                    kongUsername = lineRead[i];
-                    i++;
+                    setClient(tabControl, tab.getClient());
                 }
-                if (lineRead[i] != null)
+            }
+            if (testTabList.Count != 0)
+            {
+                foreach (Tab tab in testTabList)
                 {
-                    i++;
+                    setClient(tabControl, tab.getClient());
                 }
-                if (lineRead[i] != null)
-                {
-                }
-                if (Client.Text == "Client")
-                {
-                    Tab tab = new Tab(lineRead[i - 2], lineRead[i - 1], lineRead[i], IOUclient);
-                    //Set the IOU Client to its approiate sizing
-                    setClient(tabControl, IOUclient);
-                    updateClient(tab);
-                    tabList.Add(tab);
-                }
-                else
-                {
-                    string title = "Kong " + (tabControl.TabCount + 1).ToString();
-                    TabPage myTabPage = new TabPage(title);
-                    tabControl.TabPages.Add(myTabPage);
-                    myTabPage.Text = kongUsername;
-                    myTabPage.Name = title;
-                    tabControl.SelectedTab = myTabPage;
-                    WebKit.WebKitBrowser IOUclient2 = new WebKit.WebKitBrowser();
-                    IOUclient2.Navigated += IOUclient2_Navigated;
-                    IOUclient2.DocumentCompleted += IOUclient2_DocumentCompleted;
-                    myTabPage.Controls.Add(IOUclient2);
-                    Tab tab = new Tab(lineRead[i - 2], lineRead[i - 1], lineRead[i], IOUclient2);
-                    //Set the IOU Client to its approiate sizing
-                    setClient(tabControl, IOUclient2);
-                    //Update the client
-                    updateClient(tab);
-                    tabList.Add(tab);
-                }
-            }         
+            }
+            //string[] lineRead = null;
+            //string details = "";
+            //foreach (Tab tab in tabList)
+            //{
+            //    details = details + tab.ToString() + ",";
+            //}
+            //tabList.Clear();
+            //tabControl.TabPages.Clear();
+            //lineRead = details.Split(',');
+            //for (int i = 0; i < lineRead.Length - 2; i++)
+            //{
+            //    //Set the textboxes equal to data
+            //    if (lineRead[i] != null)
+            //    {
+            //        kongUsername = lineRead[i];
+            //        i++;
+            //    }
+            //    if (lineRead[i] != null)
+            //    {
+            //        i++;
+            //    }
+            //    if (lineRead[i] != null)
+            //    {
+            //    }
+            //    if (Client.Text == "Client")
+            //    {
+            //        Tab tab = new Tab(lineRead[i - 2], lineRead[i - 1], lineRead[i], IOUclient);
+            //        //Set the IOU Client to its approiate sizing
+            //        setClient(tabControl, IOUclient);
+            //        updateClient(tab);
+            //        tabList.Add(tab);
+            //    }
+            //    else
+            //    {
+            //        string title = "Kong " + (tabControl.TabCount + 1).ToString();
+            //        TabPage myTabPage = new TabPage(title);
+            //        tabControl.TabPages.Add(myTabPage);
+            //        myTabPage.Text = kongUsername;
+            //        myTabPage.Name = title;
+            //        tabControl.SelectedTab = myTabPage;
+            //        WebKit.WebKitBrowser IOUclient2 = new WebKit.WebKitBrowser();
+            //        IOUclient2.Navigated += IOUclient2_Navigated;
+            //        IOUclient2.DocumentCompleted += IOUclient2_DocumentCompleted;
+            //        myTabPage.Controls.Add(IOUclient2);
+            //        Tab tab = new Tab(lineRead[i - 2], lineRead[i - 1], lineRead[i], IOUclient2);
+            //        //Set the IOU Client to its approiate sizing
+            //        setClient(tabControl, IOUclient2);
+            //        //Update the client
+            //        updateClient(tab);
+            //        tabList.Add(tab);
+            //    }
+            //}         
         }
 
         private void IOURPGinternalLoad()
