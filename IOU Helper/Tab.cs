@@ -75,7 +75,7 @@ namespace IOU_Helper
 
         public void reloadIOURPG()
         {
-            _client.Url = new System.Uri("http://scripts.iouscripts.com/iou.swf");
+            _client.Url = new System.Uri("http://d2452urjrn3oas.cloudfront.net/iou.swf?v=" + _rayVersion);
         }
 
         public void reloadTestIOURPG()
