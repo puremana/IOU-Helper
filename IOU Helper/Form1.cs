@@ -1475,8 +1475,8 @@ namespace IOU_Helper
             else {
                 message = "the latest version of IOU Helper.";
             }
-            MessageBox.Show("You are currently using version " + version.ToString() + " of IOU Helper." + Environment.NewLine + "This version is " +
-            message);
+            MessageBox.Show("You are currently using version " + version.ToString() + " of IOU Helper." + Environment.NewLine + Environment.NewLine + "This version is " +
+            message + Environment.NewLine + Environment.NewLine + "Your IOURPG game version code is " + rayVersion + " (This is different to what is seen in game).");
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
