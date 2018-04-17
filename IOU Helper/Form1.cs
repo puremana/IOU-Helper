@@ -131,7 +131,7 @@ namespace IOU_Helper
                                 {
                                     textBoxKongToken.Text = lineRead[i];
                                 }
-                                if (tabPage1.Text == "Client")
+                                if (Client.Text == "Client")
                                 {
                                     Tab tab = new Tab(lineRead[i - 2], lineRead[i - 1], lineRead[i], IOUclient);
                                     //Set the IOU Client to its approiate sizing
@@ -142,7 +142,7 @@ namespace IOU_Helper
 
                                 else
                                 {
-                                    string title = "TabPage " + (tabControl.TabCount + 1).ToString();
+                                    string title = "Kong " + (tabControl.TabCount + 1).ToString();
                                     TabPage myTabPage = new TabPage(title);
                                     tabControl.TabPages.Add(myTabPage);
                                     myTabPage.Text = kongUsername;
@@ -527,18 +527,19 @@ namespace IOU_Helper
                                 if (lineRead[i] != null)
                                 {
                                 }
-                                if (tabPage1.Text == "Client")
+                                if (Client.Text == "Client")
                                 {
                                     Tab tab = new Tab(lineRead[i - 2], lineRead[i - 1], lineRead[i], IOUclient);
                                     //Set the IOU Client to its approiate sizing
                                     setClient(tabControl, IOUclient);
                                     updateClient(tab);
                                     tabList.Add(tab);
+                                    Client.Name = "Kong 1";
                                 }
 
                                 else
                                 {
-                                    string title = "TabPage " + (tabControl.TabCount + 1).ToString();
+                                    string title = "Kong " + (tabControl.TabCount + 1).ToString();
                                     TabPage myTabPage = new TabPage(title);
                                     tabControl.TabPages.Add(myTabPage);
                                     myTabPage.Text = kongUsername;
@@ -627,12 +628,15 @@ namespace IOU_Helper
 
         private void singleRefresh()
         {
-            if (tabControl.SelectedTab.Text == "IOURPG")
+            string t = tabControl.SelectedTab.Name;
+            string[] words = t.Split(' ');
+            if (words[0] == "IOURPG")
             {
                 foreach (Tab tab in IOURPGtabList)
                 {
                     if (tabControl.SelectedTab == tab.getTabPage())
                     {
+                        tab.reloadIOURPG();
                         if (tab.getIsTest() == true)
                         {
                             tab.reloadTestIOURPG();
@@ -831,7 +835,7 @@ namespace IOU_Helper
                 }
             }
             //Tab
-            string title = "TabPage " + (tabControl.TabCount + 1).ToString();
+            string title = "Client " + (tabControl.TabCount + 1).ToString();
             TabPage myTabPage = new TabPage(title);
             tabControl.TabPages.Add(myTabPage);
             myTabPage.Name = title;
@@ -1029,14 +1033,18 @@ namespace IOU_Helper
             else
             {
                 string username;
-                string tabUser = tabControl.SelectedTab.Text;
-                Tab tempTab = new Tab(null, null);
+                string t = tabControl.SelectedTab.Name;
+                string[] words = t.Split(' ');
+                string tabUser = words[0];
+                string tabText = tabControl.SelectedTab.Text;
+                //Tab tempTab = new Tab(null, null);
                 bool found = false;
 
                 if (tabUser == "Client")
                 {
                     textboxes.Clear();
                     tabControl.TabPages.Remove(tabControl.SelectedTab);
+                    return;
                 }
                 else if (tabUser == "IOURPG")
                 {
@@ -1045,24 +1053,26 @@ namespace IOU_Helper
                         if (tabControl.SelectedTab == tab.getTabPage())
                         {
                             tab.getClient().Dispose();
-                            tempTab = tab;
                             tabControl.TabPages.Remove(tabControl.SelectedTab);
+                            IOURPGtabList.Remove(tab);
+                            return;
                         }
                     }
-                    IOURPGtabList.Remove(tempTab);
+                    
                 }
                 try
                 {
                     foreach (Tab tab in tabList)
                     {
                         username = tab.getUsername();
-                        if (username == tabUser)
+                        if (username == tabText)
                         {
+                            MessageBox.Show(tabControl.SelectedTab.Text);
                             tab.getClient().Dispose();
                             tabList.Remove(tab);
                             tabControl.TabPages.Remove(tabControl.SelectedTab);
                             found = true;
-                            break;
+                            return;
                         }
                     }
                     if (found == false)
@@ -1070,12 +1080,12 @@ namespace IOU_Helper
                         foreach (Tab tab in testTabList)
                         {
                             username = tab.getUsername() + " test";
-                            if (username == tabUser)
+                            if (username == tabText)
                             {
                                 tab.getClient().Dispose();
                                 tabList.Remove(tab);
                                 tabControl.TabPages.Remove(tabControl.SelectedTab);
-                                break;
+                                return;
                             }
                         }
                     }                
@@ -1129,7 +1139,7 @@ namespace IOU_Helper
         {
             if (tabControl.TabCount != 0)
             {
-                if (tabControl.SelectedTab.Name == "tabPage1")
+                if (tabControl.SelectedTab.Name == "Client")
                 {
                     tabNumber = 1;
                 }
@@ -1335,7 +1345,7 @@ namespace IOU_Helper
                 if (lineRead[i] != null)
                 {
                 }
-                if (tabPage1.Text == "Client")
+                if (Client.Text == "Client")
                 {
                     Tab tab = new Tab(lineRead[i - 2], lineRead[i - 1], lineRead[i], IOUclient);
                     //Set the IOU Client to its approiate sizing
@@ -1345,7 +1355,7 @@ namespace IOU_Helper
                 }
                 else
                 {
-                    string title = "TabPage " + (tabControl.TabCount + 1).ToString();
+                    string title = "Kong " + (tabControl.TabCount + 1).ToString();
                     TabPage myTabPage = new TabPage(title);
                     tabControl.TabPages.Add(myTabPage);
                     myTabPage.Text = kongUsername;
@@ -1494,7 +1504,7 @@ namespace IOU_Helper
 
         private void startIOURPG()
         {
-            string title = "TabPage " + (tabControl.TabCount + 1).ToString();
+            string title = "IOURPG " + (tabControl.TabCount + 1).ToString();
             TabPage myTabPage = new TabPage(title);
             tabControl.TabPages.Add(myTabPage);
             myTabPage.Name = title;
@@ -1566,7 +1576,11 @@ namespace IOU_Helper
 
         private void runTestClientToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tabList.Count > 0 && tabControl.SelectedTab.Text != "Client" && tabControl.SelectedTab.Text != "IOURPG")
+            string t = tabControl.SelectedTab.Name;
+            string[] words = t.Split(' ');
+            string tabType = words[0];
+
+            if (tabList.Count > 0 && tabType != "Client" && tabType != "IOURPG")
             {
                 string username;
                 string tabUser = tabControl.SelectedTab.Text;
@@ -1582,7 +1596,7 @@ namespace IOU_Helper
                             //get all the details
                             Tab newTab = (Tab)tab.Clone();
                             newTab.setIsTest(true);
-                            string title = "TabPage " + (tabControl.TabCount + 1).ToString();
+                            string title = "KongTest " + (tabControl.TabCount + 1).ToString();
                             TabPage myTabPage = new TabPage(title);
                             tabControl.TabPages.Add(myTabPage);
                             myTabPage.Text = tab.getUsername() + " test";
@@ -1609,11 +1623,11 @@ namespace IOU_Helper
             }
             else
             {
-                string title = "TabPage " + (tabControl.TabCount + 1).ToString();
+                string title = "IOURPG " + (tabControl.TabCount + 1).ToString();
                 TabPage myTabPage = new TabPage(title);
                 tabControl.TabPages.Add(myTabPage);
                 myTabPage.Name = title;
-                myTabPage.Text = "IOURPG";
+                myTabPage.Text = "IOURPG Test";
                 tabControl.SelectedTab = myTabPage;
                 myTabPage.BackColor = System.Drawing.ColorTranslator.FromHtml("#222222");
 
@@ -1795,6 +1809,31 @@ namespace IOU_Helper
             {
                 SaveOnly saveOnlyForm = new SaveOnly(tabList, this);
                 saveOnlyForm.Show();
+            }
+        }
+
+        private void changeTabNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string t = tabControl.SelectedTab.Name;
+            string[] words = t.Split(' ');
+            string tabType = words[0];
+
+            if (tabType == "IOURPG")
+            {
+                if (Application.OpenForms.OfType<ChangeName>().Count() == 1)
+                {
+                    Application.OpenForms.OfType<ChangeName>().First().BringToFront();
+                }
+                else
+                {
+                    ChangeName changeNameForm = new ChangeName(tabControl.SelectedTab, this);
+                    changeNameForm.Show();
+                }
+            }
+            else
+            {
+                //MessageBox.Show(tabType);
+                MessageBox.Show("You can only rename IOURPG.com tabs.");
             }
         }
     }

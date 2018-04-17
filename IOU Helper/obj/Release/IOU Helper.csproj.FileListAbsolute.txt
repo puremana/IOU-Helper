@@ -49,3 +49,4 @@ C:\Users\owner\Desktop\Projects\IOU-Helper\IOU Helper\obj\Release\IOU Helper.csp
 C:\Users\owner\Desktop\Projects\IOU-Helper\IOU Helper\obj\Release\IOU Helper.csproj.CopyComplete
 C:\Users\owner\Desktop\Projects\IOU-Helper\IOU Helper\obj\Release\IOU Helper.exe
 C:\Users\owner\Desktop\Projects\IOU-Helper\IOU Helper\obj\Release\IOU Helper.pdb
+C:\Users\owner\Desktop\Projects\IOU-Helper\IOU Helper\obj\Release\IOU_Helper.ChangeName.resources

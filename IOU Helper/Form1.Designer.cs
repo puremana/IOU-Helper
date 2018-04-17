@@ -82,14 +82,15 @@
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.autoClickTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Client = new System.Windows.Forms.TabPage();
             this.IOUclient = new WebKit.WebKitBrowser();
             this.abilityTimer = new System.Windows.Forms.Timer(this.components);
+            this.changeTabNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.Client.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -285,7 +286,8 @@
             this.closeTabToolStripMenuItem,
             this.copyAccInfoToolStripMenuItem,
             this.copyAccURLToolStripMenuItem,
-            this.alwaysOnTopTToolStripMenuItem});
+            this.alwaysOnTopTToolStripMenuItem,
+            this.changeTabNameToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(99, 45);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -515,7 +517,7 @@
             // 
             // tabControl
             // 
-            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.Client);
             this.tabControl.Location = new System.Drawing.Point(0, 52);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -523,19 +525,19 @@
             this.tabControl.TabIndex = 7;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
-            // tabPage1
+            // Client
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
-            this.tabPage1.Controls.Add(this.IOUclient);
-            this.tabPage1.Controls.Add(this.IOUtitle);
-            this.tabPage1.Controls.Add(this.buttonStartClient);
-            this.tabPage1.Controls.Add(this.groupBoxAccount);
-            this.tabPage1.Location = new System.Drawing.Point(10, 48);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1254, 823);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Client";
+            this.Client.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.Client.Controls.Add(this.IOUclient);
+            this.Client.Controls.Add(this.IOUtitle);
+            this.Client.Controls.Add(this.buttonStartClient);
+            this.Client.Controls.Add(this.groupBoxAccount);
+            this.Client.Location = new System.Drawing.Point(10, 48);
+            this.Client.Name = "Client";
+            this.Client.Padding = new System.Windows.Forms.Padding(3);
+            this.Client.Size = new System.Drawing.Size(1254, 823);
+            this.Client.TabIndex = 0;
+            this.Client.Text = "Client";
             // 
             // IOUclient
             // 
@@ -552,6 +554,13 @@
             // abilityTimer
             // 
             this.abilityTimer.Tick += new System.EventHandler(this.abilityTimer_Tick);
+            // 
+            // changeTabNameToolStripMenuItem
+            // 
+            this.changeTabNameToolStripMenuItem.Name = "changeTabNameToolStripMenuItem";
+            this.changeTabNameToolStripMenuItem.Size = new System.Drawing.Size(409, 46);
+            this.changeTabNameToolStripMenuItem.Text = "Change Tab Name";
+            this.changeTabNameToolStripMenuItem.Click += new System.EventHandler(this.changeTabNameToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -575,8 +584,8 @@
             this.groupBoxAccount.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.Client.ResumeLayout(false);
+            this.Client.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -617,7 +626,7 @@
         private System.Windows.Forms.Timer refreshTimer;
         private System.Windows.Forms.Timer autoClickTimer;
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage Client;
         private System.Windows.Forms.ToolStripMenuItem newTabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeTabToolStripMenuItem;
         private WebKit.WebKitBrowser IOUclient;
@@ -639,6 +648,7 @@
         private System.Windows.Forms.ToolStripMenuItem hardRefreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carcCalculatorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeTabNameToolStripMenuItem;
     }
 }
 
