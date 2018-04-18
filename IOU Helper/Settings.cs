@@ -67,10 +67,6 @@ namespace IOU_Helper
                     radioButtonClickMilliseconds.Checked = true;
                 }
 
-                if (checkBoxHardRefresh.Checked == false)
-                {
-                    checkBoxHardRefresh.Checked = true;
-                }
                 textBoxChallenge.Text = "100";
                 if (radioButtonChallengeMilli.Checked != true)
                 {
@@ -177,12 +173,10 @@ namespace IOU_Helper
                             if (radioButtonRefreshSeconds.Checked == true)
                             {
                                 milSeconds = (int.Parse(textBoxRefresh.Text) * 1000);
-                                autoRadio = "milliseconds";
                             }
                             else if (radioButtonRefreshMinutes.Checked == true)
                             {
                                 milSeconds = (int.Parse(textBoxRefresh.Text) * 60000);
-                                autoRadio = "seconds";
                             }
                             //MessageBox.Show(milSeconds.ToString());
                             _form1.enableTimer(milSeconds, false);
@@ -205,12 +199,14 @@ namespace IOU_Helper
                         if (radioButtonClickMilliseconds.Checked == true)
                         {
                             int milliSeconds = int.Parse(textBoxAutoClicker.Text);
+                            autoRadio = "milliseconds";
                             //MessageBox.Show(milliSeconds.ToString());
                             _form1.autoClicker(milliSeconds);
                         }
                         else if (radioButtonClickSeconds.Checked == true)
                         {
                             int milliSeconds = (int.Parse(textBoxAutoClicker.Text) * 1000);
+                            autoRadio = "seconds";
                             //MessageBox.Show(milliSeconds.ToString());
                             _form1.autoClicker(milliSeconds);
                         }
@@ -970,14 +966,17 @@ namespace IOU_Helper
             if (size == "s" && gSize != "small")
             {
                 _form1.setSize("small");
+                gSize = "small";
             }
             else if (size == "m" && gSize != "medium")
             {
                 _form1.setSize("medium");
+                gSize = "medium";
             }
             else if (size == "l" && gSize != "large")
             {
                 _form1.setSize("large");
+                gSize = "large";
             }
         }
 
