@@ -49,7 +49,6 @@
             this.iOUChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOUForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iOUWikiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.petAnalyzerFerretToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carcCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.versionCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +84,9 @@
             this.Client = new System.Windows.Forms.TabPage();
             this.IOUclient = new WebKit.WebKitBrowser();
             this.abilityTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolStripMenuItemIOUTest = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemIOUGuide = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemBugBoard = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBoxAccount.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -197,9 +199,11 @@
             this.iOUHelperChatToolStripMenuItem,
             this.iOUSpreadsheetToolStripMenuItem,
             this.iOUChatToolStripMenuItem,
+            this.toolStripMenuItemIOUTest,
             this.iOUForumToolStripMenuItem,
             this.iOUWikiToolStripMenuItem,
-            this.petAnalyzerFerretToolStripMenuItem,
+            this.toolStripMenuItemIOUGuide,
+            this.toolStripMenuItemBugBoard,
             this.carcCalculatorToolStripMenuItem,
             this.versionCheckToolStripMenuItem});
             this.linksToolStripMenuItem.Name = "linksToolStripMenuItem";
@@ -209,56 +213,49 @@
             // iOUHelperToolStripMenuItem
             // 
             this.iOUHelperToolStripMenuItem.Name = "iOUHelperToolStripMenuItem";
-            this.iOUHelperToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
+            this.iOUHelperToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.iOUHelperToolStripMenuItem.Text = "IOU Helper";
             this.iOUHelperToolStripMenuItem.Click += new System.EventHandler(this.iOUHelperToolStripMenuItem_Click);
             // 
             // iOUHelperChatToolStripMenuItem
             // 
             this.iOUHelperChatToolStripMenuItem.Name = "iOUHelperChatToolStripMenuItem";
-            this.iOUHelperChatToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
+            this.iOUHelperChatToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.iOUHelperChatToolStripMenuItem.Text = "IOU Helper Chat";
             this.iOUHelperChatToolStripMenuItem.Click += new System.EventHandler(this.iOUHelperChatToolStripMenuItem_Click);
             // 
             // iOUSpreadsheetToolStripMenuItem
             // 
             this.iOUSpreadsheetToolStripMenuItem.Name = "iOUSpreadsheetToolStripMenuItem";
-            this.iOUSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
-            this.iOUSpreadsheetToolStripMenuItem.Text = "Pad/Zilla\'s Sheet";
+            this.iOUSpreadsheetToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+            this.iOUSpreadsheetToolStripMenuItem.Text = "Multi Calc";
             this.iOUSpreadsheetToolStripMenuItem.Click += new System.EventHandler(this.iOUSpreadsheetToolStripMenuItem_Click);
             // 
             // iOUChatToolStripMenuItem
             // 
             this.iOUChatToolStripMenuItem.Name = "iOUChatToolStripMenuItem";
-            this.iOUChatToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
+            this.iOUChatToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.iOUChatToolStripMenuItem.Text = "IOU Chat";
             this.iOUChatToolStripMenuItem.Click += new System.EventHandler(this.iOUChatToolStripMenuItem_Click);
             // 
             // iOUForumToolStripMenuItem
             // 
             this.iOUForumToolStripMenuItem.Name = "iOUForumToolStripMenuItem";
-            this.iOUForumToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
+            this.iOUForumToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.iOUForumToolStripMenuItem.Text = "IOU Forum";
             this.iOUForumToolStripMenuItem.Click += new System.EventHandler(this.iOUForumToolStripMenuItem_Click);
             // 
             // iOUWikiToolStripMenuItem
             // 
             this.iOUWikiToolStripMenuItem.Name = "iOUWikiToolStripMenuItem";
-            this.iOUWikiToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
+            this.iOUWikiToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.iOUWikiToolStripMenuItem.Text = "IOU Wiki";
             this.iOUWikiToolStripMenuItem.Click += new System.EventHandler(this.iOUWikiToolStripMenuItem_Click);
-            // 
-            // petAnalyzerFerretToolStripMenuItem
-            // 
-            this.petAnalyzerFerretToolStripMenuItem.Name = "petAnalyzerFerretToolStripMenuItem";
-            this.petAnalyzerFerretToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
-            this.petAnalyzerFerretToolStripMenuItem.Text = "Pet Analyzer (Indigo)";
-            this.petAnalyzerFerretToolStripMenuItem.Click += new System.EventHandler(this.petAnalyzerFerretToolStripMenuItem_Click);
             // 
             // carcCalculatorToolStripMenuItem
             // 
             this.carcCalculatorToolStripMenuItem.Name = "carcCalculatorToolStripMenuItem";
-            this.carcCalculatorToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
+            this.carcCalculatorToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.carcCalculatorToolStripMenuItem.Text = "Card Calculator";
             this.carcCalculatorToolStripMenuItem.Click += new System.EventHandler(this.carcCalculatorToolStripMenuItem_Click);
             // 
@@ -267,7 +264,7 @@
             this.versionCheckToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("versionCheckToolStripMenuItem.Image")));
             this.versionCheckToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.versionCheckToolStripMenuItem.Name = "versionCheckToolStripMenuItem";
-            this.versionCheckToolStripMenuItem.Size = new System.Drawing.Size(407, 46);
+            this.versionCheckToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
             this.versionCheckToolStripMenuItem.Text = "Version Check";
             this.versionCheckToolStripMenuItem.Click += new System.EventHandler(this.versionCheckToolStripMenuItem_Click);
             // 
@@ -553,6 +550,27 @@
             // 
             this.abilityTimer.Tick += new System.EventHandler(this.abilityTimer_Tick);
             // 
+            // toolStripMenuItemIOUTest
+            // 
+            this.toolStripMenuItemIOUTest.Name = "toolStripMenuItemIOUTest";
+            this.toolStripMenuItemIOUTest.Size = new System.Drawing.Size(396, 46);
+            this.toolStripMenuItemIOUTest.Text = "IOU Test Chat";
+            this.toolStripMenuItemIOUTest.Click += new System.EventHandler(this.toolStripMenuItemIOUTest_Click);
+            // 
+            // toolStripMenuItemIOUGuide
+            // 
+            this.toolStripMenuItemIOUGuide.Name = "toolStripMenuItemIOUGuide";
+            this.toolStripMenuItemIOUGuide.Size = new System.Drawing.Size(396, 46);
+            this.toolStripMenuItemIOUGuide.Text = "IOU Guide";
+            this.toolStripMenuItemIOUGuide.Click += new System.EventHandler(this.toolStripMenuItemIOUGuide_Click);
+            // 
+            // toolStripMenuItemBugBoard
+            // 
+            this.toolStripMenuItemBugBoard.Name = "toolStripMenuItemBugBoard";
+            this.toolStripMenuItemBugBoard.Size = new System.Drawing.Size(396, 46);
+            this.toolStripMenuItemBugBoard.Text = "Bug Board";
+            this.toolStripMenuItemBugBoard.Click += new System.EventHandler(this.toolStripMenuItemBugBoard_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -627,7 +645,6 @@
         private System.Windows.Forms.ToolStripMenuItem refreshAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem timersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iOUHelperChatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem petAnalyzerFerretToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newIourpgToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem versionCheckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hardRefreshAllToolStripMenuItem;
@@ -639,6 +656,9 @@
         private System.Windows.Forms.ToolStripMenuItem saveOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carcCalculatorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeTabNameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemIOUTest;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemIOUGuide;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBugBoard;
     }
 }
 

@@ -584,7 +584,7 @@ namespace IOU_Helper
 
         private void iOUChatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("https://discordapp.com/channels/14600738tabMediumWidth6235905/14600738tabMediumWidth6235905");
+            Process.Start("https://discord.gg/2X234");
         }
 
         private void iOUForumToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1803,6 +1803,21 @@ namespace IOU_Helper
                 //MessageBox.Show(tabType);
                 MessageBox.Show("You can only rename IOURPG.com tabs.");
             }
+        }
+
+        private void toolStripMenuItemIOUTest_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://discord.gg/n4JKs5");
+        }
+
+        private void toolStripMenuItemIOUGuide_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://tinyurl.com/IOUguide");
+        }
+
+        private void toolStripMenuItemBugBoard_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://trello.com/b/bzmY0s9Z/iou");
         }
     }
 }
