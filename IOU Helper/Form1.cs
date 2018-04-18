@@ -971,41 +971,32 @@ namespace IOU_Helper
             int tc = textboxes.Count();
             if ((textboxes[tc - 3].Text != "") && (textboxes[tc - 2].Text != "") && (textboxes[tc - 1].Text != ""))
             {
+                Tab tab = new Tab(textboxes[tc - 3].Text, textboxes[tc - 2].Text, textboxes[tc - 1].Text, browser);
+                tempLabel.Visible = false;
+                tempBox.Visible = false;
+                tempButton.Visible = false;
+                browser.Location = new Point(0, 0);
 
-                if (tabList.Count >= 1)
+                //Set the IOU Client to its approiate sizing
+                if (size == "small")
                 {
-                    Tab tab = new Tab(textboxes[tc - 3].Text, textboxes[tc - 2].Text, textboxes[tc - 1].Text, browser);
-                    tempLabel.Visible = false;
-                    tempBox.Visible = false;
-                    tempButton.Visible = false;
-                    browser.Location = new Point(0, 0);
-
-                    //Set the IOU Client to its approiate sizing
-                    if (size == "small")
-                    {
-                        browser.Height = iouSmallHeight;
-                        browser.Width = iouSmallWidth;
-                    }
-                    else if (size == "medium")
-                    {
-                        browser.Height = iouMediumHeight;
-                        browser.Width = iouMediumWidth;
-                    }
-                    else if (size == "large")
-                    {
-                        browser.Height = iouLargeHeight;
-                        browser.Width = iouLargeWidth;
-                    }
-                    //Update the client
-                    updateClient(tab);
-                    tabList.Add(tab);
-                    saveDetails(false);
-                    browser = null;
+                    browser.Height = iouSmallHeight;
+                    browser.Width = iouSmallWidth;
                 }
-                else
+                else if (size == "medium")
                 {
-                    MessageBox.Show("Error test");
+                    browser.Height = iouMediumHeight;
+                    browser.Width = iouMediumWidth;
                 }
+                else if (size == "large")
+                {
+                    browser.Height = iouLargeHeight;
+                    browser.Width = iouLargeWidth;
+                }
+                //Update the client
+                updateClient(tab);
+                tabList.Add(tab);
+                saveDetails(false);
             }
             else
             {
@@ -1067,7 +1058,6 @@ namespace IOU_Helper
                         username = tab.getUsername();
                         if (username == tabText)
                         {
-                            MessageBox.Show(tabControl.SelectedTab.Text);
                             tab.getClient().Dispose();
                             tabList.Remove(tab);
                             tabControl.TabPages.Remove(tabControl.SelectedTab);
