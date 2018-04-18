@@ -799,10 +799,6 @@ namespace IOU_Helper
                 refreshAll();
                 return true;
             }
-            else if (keyData == Keys.F7) {
-                captureScreenshot();
-                return true;
-            }
             else if (keyData == Keys.F8)
             {
                 closeTab();
@@ -1433,25 +1429,7 @@ namespace IOU_Helper
 
         private void screenshotToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            captureScreenshot();         
-        }
-
-        private void captureScreenshot()
-        {
-            foreach (Tab tab in tabList)
-            {
-                if (tabControl.SelectedTab.Text == tab.getUsername())
-                {
-                    using (Bitmap bmp = new Bitmap(tab.getClient().Width, tab.getClient().ClientSize.Height))
-                    {
-                        tab.getClient().DrawToBitmap(bmp, tab.getClient().ClientRectangle);
-                        //string fName = "Screenshots" + tab.getUsername() + DateTime.Today + ".png";
-                        var fName = string.Format(@"Screenshots/{0}.png", DateTime.Now.Ticks);
-                        bmp.Save(fName);
-                        MessageBox.Show("Screenshot of " + tab.getUsername() + " taken.");
-                    }
-                }
-            }
+            //captureScreenshot();         
         }
 
         private void petAnalyzerFerretToolStripMenuItem_Click(object sender, EventArgs e)

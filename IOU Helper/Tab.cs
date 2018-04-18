@@ -67,6 +67,11 @@ namespace IOU_Helper
             return _tabpage;
         }
 
+        public string getTabText()
+        {
+            return _tabpage.Text;
+        }
+
         public static void setCodes(string code, string rayVersion) 
         {
             _code = code;
