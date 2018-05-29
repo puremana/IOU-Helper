@@ -12,6 +12,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Timers;
+using System.Globalization;
 
 namespace IOU_Helper
 {
@@ -24,7 +25,7 @@ namespace IOU_Helper
         static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
         //Current version number
-        private string version = "1.8";
+        private string version = "1.81";
         private string check = "";
 
         // constants for the mouse_input() API function
@@ -378,8 +379,8 @@ namespace IOU_Helper
                   
                     code = codeWords[2];
 
-                    Random rnd = new Random();
-                    string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
+                    var timeStamp = (DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds;
+                    string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=" + timeStamp;
                     rayVersion = wc.DownloadString(url);
                     Tab.setCodes(code, rayVersion);
                     
@@ -1205,8 +1206,8 @@ namespace IOU_Helper
                   
                 code = codeWords[2];
 
-                Random rnd = new Random();
-                string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
+                var timeStamp = (DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds;
+                string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=" + timeStamp;
                 rayVersion = wc.DownloadString(url);
                 Tab.setCodes(code, rayVersion);
                     
@@ -1606,7 +1607,7 @@ namespace IOU_Helper
                 myTabPage.Controls.Add(IOUclient2);
                 IOUclient2.Visible = true;
                 setClient(tabControl, IOUclient2);
-                IOUclient2.Url = new System.Uri("http://iourpg.com/test.swf");
+                IOUclient2.Url = new System.Uri("http://d2452urjrn3oas.cloudfront.net/test.swf");
                 Tab tab = new Tab(IOUclient2, myTabPage);
                 tab.setIsTest(true);
                 IOURPGtabList.Add(tab);
@@ -1734,8 +1735,8 @@ namespace IOU_Helper
                 string[] codeWords = rawCode.Split(new string[] { "API_AS3_", ".swf" }, StringSplitOptions.None);
 
                 code = codeWords[2];
-                Random rnd = new Random();
-                string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=506" + rnd.Next(1, 1000);
+                var timeStamp = (DateTime.Now.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds;
+                string url = "https://d2452urjrn3oas.cloudfront.net/v.txt?d=" + timeStamp;
                 rayVersion = wc.DownloadString(url);
 
                 Tab.setCodes(code, rayVersion);
